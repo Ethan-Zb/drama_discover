@@ -1,14 +1,15 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+from .environment import load_environment, apply_deployment_settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Read local configuration while preserving explicit environment overrides.
-load_dotenv(BASE_DIR / ".env", override=False, encoding="utf-8-sig")
+_environment = load_environment(BASE_DIR)
+APP_ENV = _environment.name
+ENV_FILE = _environment.path
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-only-change-this-secret-key")
-DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
+DEBUG = os.environ.get("DJANGO_DEBUG", "1" if APP_ENV == "development" else "0") == "1"
 ALLOWED_HOSTS = [h.strip() for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if h.strip()]
 
 INSTALLED_APPS = [
@@ -102,3 +103,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Development default. Configure secure cookies/HTTPS before production deployment.
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+apply_deployment_settings(globals(), APP_ENV)
