@@ -1,7 +1,7 @@
 {% load i18n navigation_i18n %}{% load static %}
 <!doctype html>
 {% get_current_language as CURRENT_LANGUAGE %}<html lang="{{ CURRENT_LANGUAGE }}">
-<head>
+<head>{% include "includes/favicon.html" %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_setting.site_name|default:"Drama Discover" }}{% endblock %}</title>
