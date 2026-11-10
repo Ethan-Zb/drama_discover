@@ -3,7 +3,7 @@
 当前前端是 Django 模板 + CSS/JS，无需 npm 或构建 dist。上传完整项目，通过 Gunicorn 渲染页面，Nginx 提供静态文件并代理请求。
 已包含 53 个平台导航、中英文切换、国家分类和运营后台；自动全网搜索短剧尚未实现。
 
-本文以 Linux、`/data/services/drama_discover` 项目目录、`/data/services/drama_discover/.venv` 虚拟环境、`shortdrama` 应用用户、`example.com` 域名为例。请统一替换。
+本文以 Linux、`/data/services/drama_discover` 项目目录、`/data/services/drama_discover/.venv` 新建环境示例（已有 venv 可沿用，并填写实际 Gunicorn 路径）、`root` 应用用户（按你的要求）、`example.com` 域名为例。请统一替换。
 
 ## 1 上传项目和配置
 
@@ -17,14 +17,12 @@ Windows 的虚拟环境不能复制到 Linux。不要上传真实开发环境文
 # Debian/Ubuntu 示例；其他发行版用对应包管理器安装 python3-venv、Supervisor、Nginx
 sudo apt-get update
 sudo apt-get install python3-venv supervisor nginx
-# 仅在此应用用户尚不存在时执行
-id shortdrama || sudo useradd --system --home-dir /data/services/drama_discover --shell /usr/sbin/nologin shortdrama
-sudo install -d -o shortdrama -g shortdrama /data/services/drama_discover /data/services/drama_discover/.venv
-sudo -u shortdrama python3 -m venv /data/services/drama_discover/.venv
-sudo -u shortdrama /data/services/drama_discover/.venv/bin/pip install -r /data/services/drama_discover/requirements-production.txt
+sudo install -d /data/services/drama_discover /data/services/drama_discover/.venv
+python3 -m venv /data/services/drama_discover/.venv
+/data/services/drama_discover/.venv/bin/pip install -r /data/services/drama_discover/requirements-production.txt
 ```
 
-确保上传的项目属于 `shortdrama`，该用户可写 media、staticfiles（收集静态文件时），并可读代码和环境文件。Nginx 的实际用户（Ubuntu 通常 www-data）需对 staticfiles/media 有目录遍历和文件读取权限，可用组或 ACL 授予；不要开放 .env 的读取权限。
+本次使用 root 运行应用和管理命令。Nginx 的实际用户（Ubuntu 通常 www-data）需对 staticfiles/media 有目录遍历和文件读取权限，可用组或 ACL 授予；不要开放 .env 的读取权限。
 
 ## 2 按环境加载 .env
 
@@ -41,9 +39,9 @@ APP_ENV 和 DJANGO_SETTINGS_MODULE 必须在启动进程时设置，不要指望
 ```bash
 cd /data/services/drama_discover
 # 首次创建；已有文件请直接编辑，勿覆盖
-sudo -u shortdrama cp -n .env.production.example .env.production
+cp -n .env.production.example .env.production
 sudo chmod 600 .env.production
-sudo -u shortdrama nano .env.production
+nano .env.production
 ```
 
 填入真实 DB_NAME/DB_USER/DB_PASSWORD/DB_HOST/DB_PORT；新库示例名称不代表已有数据已经迁移。
@@ -60,11 +58,11 @@ DJANGO_ALLOWED_HOSTS 填所有实际域名（无协议），DJANGO_CSRF_TRUSTED_
 管理命令也必须显式选择同一环境：
 
 ```bash
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py check
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py migrate
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py collectstatic --noinput
+env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py check
+env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py migrate
+env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py collectstatic --noinput
 # 首次建站需要管理员时执行
-sudo -u shortdrama env APP_ENV=production /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py createsuperuser
+env APP_ENV=production /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py createsuperuser
 ```
 
 Windows 本地开发继续默认运行即可；原 .env 仍兼容。有 .env.development 时优先读取它。
@@ -80,72 +78,58 @@ python manage.py check
 testing 是一套独立运行环境；项目自动测试仍可用 `python manage.py test --settings=config.test_settings` 的内存 SQLite，避免接触业务库。
 旧命令 `config.production_settings` 仍兼容，但必须同时设置 APP_ENV=production。
 
-## 3 Supervisor 启动：选择一种方式
+## 3 按现有服务器方式接入 Supervisor（root）
 
-Gunicorn 在前台运行，由 Supervisor 管理；不要加 --daemon、--reload，也不要用 runserver 承担生产流量。配置默认两个 worker，可按服务器资源调整。
-配置中只有环境选择，没有数据库密码。Supervisor/Gunicorn 运行在 Linux；本次未在 Windows 启动它们。
+主配置参考你提供的 beautycrush_backend/docs/supervisord.conf：
+- /etc/supervisord.conf：共享主配置，socket /var/run/supervisor.sock。
+- /data/supervisor_ini/*.ini：各项目配置；本项目使用 drama_discover.ini。
+- /data/supervisor_log/：Supervisor 和项目日志。
+- 应用按你的要求使用 root；启动入口采用服务器上已找到的 /usr/local/bin/gunicorn。
 
-### A：专用 supervisord.conf（完整配置）
+已有主配置时保留原有项目和设置，只确认 [include] 包含 /data/supervisor_ini/*.ini。不要直接覆盖正管理其他项目的全局配置。本包 supervisord.conf 是完整主配置参考，适用于首次搭建或逐项合并。
+移除你之前在主配置中手工加入的整个 [program:short-drama] 段（包括 user=shortdrama 等该段旧配置），只保留一份新 ini；同时检查旧 include 目录是否仍加载同名程序，避免 8000 被重复占用。
 
-适合尚未用其他 Supervisor 实例管理本项目的服务器。`deploy/supervisor/supervisord.conf` 已包含 Unix socket、supervisorctl、日志和应用程序配置。
-独立实例可以与系统其他实例共存，但同一个 short-drama 程序只能启动一次，8000 端口不能冲突。不要覆盖系统原有全局配置。
-
-```bash
-sudo install -d -m 755 /etc/short-drama /var/log/short-drama
-sudo install -m 644 /data/services/drama_discover/deploy/supervisor/supervisord.conf /etc/short-drama/supervisord.conf
-# 核对配置里的项目路径、虚拟环境和 user；安装命令位置也需要核对
-command -v supervisord
-command -v supervisorctl
-```
-
-**建议用附带的 systemd 单元使 Supervisor 开机启动**，应用仍由 supervisorctl 管理。单元默认 /usr/bin/supervisord、/usr/bin/supervisorctl，若上面的实际路径不同请修改 ExecStart/ExecStop。
+先验证实际 Gunicorn 能加载本项目及其依赖，命令不启动监听：
 
 ```bash
-sudo install -m 644 /data/services/drama_discover/deploy/supervisor/short-drama-supervisor.service /etc/systemd/system/short-drama-supervisor.service
-sudo systemctl daemon-reload
-sudo systemctl enable --now short-drama-supervisor
-sudo supervisorctl -c /etc/short-drama/supervisord.conf status
+cd /data/services/drama_discover
+APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /usr/local/bin/gunicorn --check-config config.wsgi:application
 ```
 
-systemd 自动创建 /run 下的 socket 目录。如果不使用 systemd，也可手动首次启动（不会自动获得开机启动能力，重启服务器后需重建 /run 目录）：
+若提示缺少 Django/PyMySQL 等模块，说明全局 Gunicorn 与当前激活的 venv 属于不同环境。使用当前项目 Python 安装完整依赖：
 
 ```bash
-sudo install -d -m 700 /run/short-drama-supervisor
-sudo supervisord -c /etc/short-drama/supervisord.conf
-sudo supervisorctl -c /etc/short-drama/supervisord.conf status
+python -m pip install -r requirements-production.txt
+python -c 'import sys; from pathlib import Path; print(Path(sys.executable).parent / "gunicorn")'
 ```
 
-**两种启动方式只选一种。** supervisord 是管理守护进程；supervisorctl 是控制客户端，需要先有运行中的 supervisord。
-
-### B：加入服务器已有 Supervisor
-
-只复制 `deploy/supervisor/short-drama.program.conf` 到现有 Supervisor 的 include 目录。Ubuntu 通常如下；其他发行版先查看主配置的 [include]，有的只匹配 *.ini，需按其规则命名。
+将输出的实际 Gunicorn 绝对路径填到 drama_discover.ini 的 command 起始位置，再用该路径执行 --check-config。Supervisor 不会自动激活终端里的 venv；本包不再假定服务器存在 .venv/bin/gunicorn。
 
 ```bash
-sudo install -d -m 755 /var/log/short-drama
-sudo install -m 644 /data/services/drama_discover/deploy/supervisor/short-drama.program.conf /etc/supervisor/conf.d/short-drama.conf
-sudo supervisorctl reread
-sudo supervisorctl update
-sudo supervisorctl status short-drama
+mkdir -p /data/supervisor_ini /data/supervisor_log
+# 将部署包的 deploy/supervisor/drama_discover.ini 上传到项目同名路径后执行
+cp /data/services/drama_discover/deploy/supervisor/drama_discover.ini /data/supervisor_ini/drama_discover.ini
+supervisorctl -c /etc/supervisord.conf reread
+supervisorctl -c /etc/supervisord.conf update
+supervisorctl -c /etc/supervisord.conf status short-drama
 ```
 
-此方式不要再启动 A 的专用实例；使用现有 Supervisor 的 socket 和主配置。若其配置不在默认路径，所有 supervisorctl 命令加 `-c /实际/主配置路径`。
+如果 supervisord 尚未运行，先确认主配置、日志目录及 ini 准备好，再执行一次 `supervisord -c /etc/supervisord.conf`，然后查询 status。已有实例运行时无需再启动；出现连接错误先核对当前守护进程使用的主配置和 socket。
+原服务器如已通过系统服务启动 Supervisor，沿用它负责开机启动。本包不再增加第二个 Supervisor systemd 实例。
 
 ## 4 常用 supervisorctl 命令
 
-以下针对方式 A；方式 B 使用现有主配置或省略 -c。
-
 ```bash
-sudo supervisorctl -c /etc/short-drama/supervisord.conf status short-drama
-sudo supervisorctl -c /etc/short-drama/supervisord.conf restart short-drama
-sudo supervisorctl -c /etc/short-drama/supervisord.conf stop short-drama
-sudo supervisorctl -c /etc/short-drama/supervisord.conf start short-drama
-sudo supervisorctl -c /etc/short-drama/supervisord.conf tail -100 short-drama stderr
+supervisorctl -c /etc/supervisord.conf status short-drama
+supervisorctl -c /etc/supervisord.conf restart short-drama
+supervisorctl -c /etc/supervisord.conf stop short-drama
+supervisorctl -c /etc/supervisord.conf start short-drama
+supervisorctl -c /etc/supervisord.conf tail -100 short-drama stderr
+tail -n 100 /data/supervisor_log/drama_discover_error.log
 ```
 
-修改 .env.production：`restart short-drama`，应用重新读取文件。如果同名变量已在进程环境中定义，仍以进程值优先。
-修改 Supervisor 的 program 配置：`reread` 后 `update`；单独 restart 不会重读 Supervisor 配置。首次手动启动失败可用 `supervisord -n -c /etc/short-drama/supervisord.conf` 查看错误，前提是没有已运行的同配置实例。
-如果变更的是父进程继承的系统环境，需重启 Supervisor 本身；APP_ENV 已直接在 program 的 environment 字段定义。
+修改 .env.production 后 restart 即可。修改 ini 后执行 reread 和 update；单独 restart 不会重读 Supervisor 配置。
+如果同名变量已在进程环境中定义，仍以进程值优先。若修改父进程继承的系统环境，需重启 Supervisor 本身（会影响其管理的其他应用，应安排窗口）。
 
 ## 5 前端 Nginx 与 HTTPS
 
@@ -174,9 +158,9 @@ sudo systemctl reload nginx
 - /cms/、/admin/：登录正常；实际域名在站点配置中启用，且位于 DJANGO_ALLOWED_HOSTS。
 - 样式 404：检查 collectstatic、Nginx alias 的末尾 /、目录遍历权限。
 - Unknown or inactive site：补齐后台站点的域名登记，不是在域名字段填完整 URL。
-- 502：检查 supervisorctl status、/var/log/short-drama/error.log、8000 端口是否监听及是否被重复启动占用。
-- FATAL/BACKOFF：检查 .env.production 是否存在、占位密钥是否已替换、DB 连接和 user/虚拟环境路径。
-- supervisorctl 无法连接：检查 supervisord 是否运行、-c 是否指向同一配置、/run 下 socket 是否存在；不要直接删其他实例的 socket。
+- 502：检查 supervisorctl status、/data/supervisor_log/drama_discover_error.log、8000 端口是否监听及是否被重复启动占用。
+- FATAL/BACKOFF：检查 .env.production 是否存在、占位密钥是否已替换、DB 连接和 Gunicorn 实际路径及其 Python 依赖。
+- supervisorctl 无法连接：检查 supervisord 是否运行、-c 是否指向同一配置、/var/run/supervisor.sock 是否存在；不要直接删其他实例的 socket。
 - 跳转循环：检查 Nginx 覆盖 X-Forwarded-Proto，Django 只由可信本机代理访问。
 - 数据为空：核对生产 DB 是否确实包含原数据及站点关联；不会从本地开发库自动同步。
 
