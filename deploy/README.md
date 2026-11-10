@@ -3,11 +3,11 @@
 当前前端是 Django 模板 + CSS/JS，无需 npm 或构建 dist。上传完整项目，通过 Gunicorn 渲染页面，Nginx 提供静态文件并代理请求。
 已包含 53 个平台导航、中英文切换、国家分类和运营后台；自动全网搜索短剧尚未实现。
 
-本文以 Linux、`/srv/short-drama` 项目目录、`/srv/venvs/short-drama` 虚拟环境、`shortdrama` 应用用户、`example.com` 域名为例。请统一替换。
+本文以 Linux、`/data/services/drama_discover` 项目目录、`/data/services/drama_discover/.venv` 虚拟环境、`shortdrama` 应用用户、`example.com` 域名为例。请统一替换。
 
 ## 1 上传项目和配置
 
-上传本地 `C:\Users\admin\Downloads\short_drama_platform_windows\short_drama_platform` 内容到 `/srv/short-drama`，保留模板、static、locale 下的 .mo、各应用 migrations 和 platforms/data。
+上传本地 `C:\Users\admin\Downloads\short_drama_platform_windows\short_drama_platform` 内容到 `/data/services/drama_discover`，保留模板、static、locale 下的 .mo、各应用 migrations 和 platforms/data。
 Windows 的虚拟环境不能复制到 Linux。不要上传真实开发环境文件，也不要把项目目录作为 Nginx 静态根目录。
 
 本次已更新本地项目的配置加载代码。如果服务器使用旧版代码，将本包 `project-update/` 内文件按相同路径覆盖到服务器项目，先备份原文件；同一份新版代码支持各环境。
@@ -18,10 +18,10 @@ Windows 的虚拟环境不能复制到 Linux。不要上传真实开发环境文
 sudo apt-get update
 sudo apt-get install python3-venv supervisor nginx
 # 仅在此应用用户尚不存在时执行
-id shortdrama || sudo useradd --system --home-dir /srv/short-drama --shell /usr/sbin/nologin shortdrama
-sudo install -d -o shortdrama -g shortdrama /srv/short-drama /srv/venvs/short-drama
-sudo -u shortdrama python3 -m venv /srv/venvs/short-drama
-sudo -u shortdrama /srv/venvs/short-drama/bin/pip install -r /srv/short-drama/requirements-production.txt
+id shortdrama || sudo useradd --system --home-dir /data/services/drama_discover --shell /usr/sbin/nologin shortdrama
+sudo install -d -o shortdrama -g shortdrama /data/services/drama_discover /data/services/drama_discover/.venv
+sudo -u shortdrama python3 -m venv /data/services/drama_discover/.venv
+sudo -u shortdrama /data/services/drama_discover/.venv/bin/pip install -r /data/services/drama_discover/requirements-production.txt
 ```
 
 确保上传的项目属于 `shortdrama`，该用户可写 media、staticfiles（收集静态文件时），并可读代码和环境文件。Nginx 的实际用户（Ubuntu 通常 www-data）需对 staticfiles/media 有目录遍历和文件读取权限，可用组或 ACL 授予；不要开放 .env 的读取权限。
@@ -39,7 +39,7 @@ sudo -u shortdrama /srv/venvs/short-drama/bin/pip install -r /srv/short-drama/re
 APP_ENV 和 DJANGO_SETTINGS_MODULE 必须在启动进程时设置，不要指望在 .env 内切换设置模块。
 
 ```bash
-cd /srv/short-drama
+cd /data/services/drama_discover
 # 首次创建；已有文件请直接编辑，勿覆盖
 sudo -u shortdrama cp -n .env.production.example .env.production
 sudo chmod 600 .env.production
@@ -50,7 +50,7 @@ sudo -u shortdrama nano .env.production
 DJANGO_SECRET_KEY 替换为随机密钥（至少 32 字符），可用以下命令生成并保存在服务器。已上线项目应保留原有安全密钥，否则现有登录会话失效。
 
 ```bash
-/srv/venvs/short-drama/bin/python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+/data/services/drama_discover/.venv/bin/python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 ```
 
 密钥和含 #、空格的密码请在 .env 中用单引号包裹。生产强制 DEBUG=False，要求显式域名、密钥及数据库连接身份；缺少配置不会退回开发库。
@@ -60,11 +60,11 @@ DJANGO_ALLOWED_HOSTS 填所有实际域名（无协议），DJANGO_CSRF_TRUSTED_
 管理命令也必须显式选择同一环境：
 
 ```bash
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /srv/venvs/short-drama/bin/python /srv/short-drama/manage.py check
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /srv/venvs/short-drama/bin/python /srv/short-drama/manage.py migrate
-sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /srv/venvs/short-drama/bin/python /srv/short-drama/manage.py collectstatic --noinput
+sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py check
+sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py migrate
+sudo -u shortdrama env APP_ENV=production DJANGO_SETTINGS_MODULE=config.settings /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py collectstatic --noinput
 # 首次建站需要管理员时执行
-sudo -u shortdrama env APP_ENV=production /srv/venvs/short-drama/bin/python /srv/short-drama/manage.py createsuperuser
+sudo -u shortdrama env APP_ENV=production /data/services/drama_discover/.venv/bin/python /data/services/drama_discover/manage.py createsuperuser
 ```
 
 Windows 本地开发继续默认运行即可；原 .env 仍兼容。有 .env.development 时优先读取它。
@@ -92,7 +92,7 @@ Gunicorn 在前台运行，由 Supervisor 管理；不要加 --daemon、--reload
 
 ```bash
 sudo install -d -m 755 /etc/short-drama /var/log/short-drama
-sudo install -m 644 /srv/short-drama/deploy/supervisor/supervisord.conf /etc/short-drama/supervisord.conf
+sudo install -m 644 /data/services/drama_discover/deploy/supervisor/supervisord.conf /etc/short-drama/supervisord.conf
 # 核对配置里的项目路径、虚拟环境和 user；安装命令位置也需要核对
 command -v supervisord
 command -v supervisorctl
@@ -101,7 +101,7 @@ command -v supervisorctl
 **建议用附带的 systemd 单元使 Supervisor 开机启动**，应用仍由 supervisorctl 管理。单元默认 /usr/bin/supervisord、/usr/bin/supervisorctl，若上面的实际路径不同请修改 ExecStart/ExecStop。
 
 ```bash
-sudo install -m 644 /srv/short-drama/deploy/supervisor/short-drama-supervisor.service /etc/systemd/system/short-drama-supervisor.service
+sudo install -m 644 /data/services/drama_discover/deploy/supervisor/short-drama-supervisor.service /etc/systemd/system/short-drama-supervisor.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now short-drama-supervisor
 sudo supervisorctl -c /etc/short-drama/supervisord.conf status
@@ -123,7 +123,7 @@ sudo supervisorctl -c /etc/short-drama/supervisord.conf status
 
 ```bash
 sudo install -d -m 755 /var/log/short-drama
-sudo install -m 644 /srv/short-drama/deploy/supervisor/short-drama.program.conf /etc/supervisor/conf.d/short-drama.conf
+sudo install -m 644 /data/services/drama_discover/deploy/supervisor/short-drama.program.conf /etc/supervisor/conf.d/short-drama.conf
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl status short-drama
@@ -156,8 +156,8 @@ Ubuntu 示例（其他发行版使用其 include 的 conf.d 目录）：
 
 ```bash
 sudo install -d /etc/nginx/snippets
-sudo install -m 644 /srv/short-drama/nginx-locations.conf /etc/nginx/snippets/short-drama-locations.conf
-sudo install -m 644 /srv/short-drama/nginx-http.conf /etc/nginx/sites-available/short-drama
+sudo install -m 644 /data/services/drama_discover/nginx-locations.conf /etc/nginx/snippets/short-drama-locations.conf
+sudo install -m 644 /data/services/drama_discover/nginx-http.conf /etc/nginx/sites-available/short-drama
 # 首次创建链接；已存在则检查其目标后编辑配置
 sudo ln -s /etc/nginx/sites-available/short-drama /etc/nginx/sites-enabled/short-drama
 sudo nginx -t
