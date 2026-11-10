@@ -1,0 +1,5 @@
+{% load i18n navigation_i18n %}{% if site_ads %}<aside class="my-4" aria-label="Advertisements">{% for ad in site_ads %}
+<div class="border rounded-3 p-3 mb-3"><span class="small text-secondary">{% translate "Advertisement" %}</span>
+<a href="{% url 'ad_click' ad.pk %}" rel="sponsored nofollow noopener" target="_blank" class="d-block mt-2">
+{% if ad.image_url %}<img src="{{ ad.image_url }}" alt="{{ ad.headline }}" class="img-fluid rounded mb-2" loading="lazy">{% endif %}{{ ad.headline }}</a></div>
+{% endfor %}</aside>{% endif %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% load i18n navigation_i18n %}
+{% block title %}{% if current_category %}{{ current_category.name }} {% translate "Dramas" %}{% else %}{% translate "All Short Dramas" %}{% endif %}{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">{% if current_category %}{{ current_category.name }}{% else %}{% translate "Discover short dramas" %}{% endif %}</h1>
+<div class="row g-4">{% for drama in dramas %}{% include "drama/_card.html" %}{% empty %}<p>{% translate "No dramas published yet." %}</p>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% load i18n navigation_i18n %}<div class="col-6 col-md-4 col-lg-3">
+  <div class="card h-100 drama-card">
+    <a href="{{ drama.get_absolute_url }}" class="text-decoration-none">
+      {% if drama.cover %}<img src="{{ drama.cover.url }}" class="card-img-top poster" alt="{{ drama.title }}">
+      {% else %}<div class="poster placeholder-poster">{{ drama.title|truncatechars:30 }}</div>{% endif %}
+    </a>
+    <div class="card-body"><div class="small text-secondary">{{ drama.category.name|default:_("Drama") }} · {{ drama.language }}</div>
+      <h3 class="h6 mt-2"><a class="text-decoration-none text-dark" href="{{ drama.get_absolute_url }}">{{ drama.title }}</a></h3>
+      <p class="small text-secondary mb-0">{{ drama.description|truncatechars:90 }}</p>
+    </div>
+  </div>
+</div>

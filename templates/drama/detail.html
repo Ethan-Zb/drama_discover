@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% load i18n navigation_i18n %}
+{% block title %}{{ drama.meta_title|default:drama.title }}{% endblock %}
+{% block meta_description %}{{ drama.meta_description|default:drama.description|truncatechars:300 }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ canonical }}">{% endblock %}
+{% block extra_head %}<script type="application/ld+json">{{ structured_json|safe }}</script>{% endblock %}
+{% block content %}
+<nav class="small mb-3"><a href="/">{% translate "Home" %}</a> / {% if drama.category %}<a href="{% url 'drama:category' drama.category.slug %}">{{ drama.category.name }}</a> / {% endif %}{{ drama.title }}</nav>
+<div class="row g-4">
+  <div class="col-md-4">{% if drama.cover %}<img src="{{ drama.cover.url }}" class="img-fluid rounded-4 shadow-sm" alt="{{ drama.title }}">{% else %}<div class="placeholder-poster rounded-4">{{ drama.title }}</div>{% endif %}</div>
+  <div class="col-md-8"><div class="text-secondary small mb-2">{{ drama.category.name|default:_("Drama") }} · {{ drama.language }} · {{ drama.episode_count }} {% translate "episodes" %}</div>
+    <h1 class="display-6 fw-bold">{{ drama.title }}</h1><p class="lead">{{ drama.description }}</p>
+    {% if drama.tags %}<p class="small text-secondary">{% translate "Tags:" %} {{ drama.tags }}</p>{% endif %}
+    <div class="alert alert-light border"><strong>{% translate "Viewing options" %}</strong><p class="small mb-2">{% translate "Choose an official or authorized source. This directory does not host the video." %}</p>
+    {% for link in viewing_links %}{% if link.is_active and link.is_official %}<a class="btn btn-primary me-2 mb-2" href="{% url 'go_to_source' link.id %}" target="_blank" rel="nofollow noopener noreferrer">{{ link.label|localize_label }} · {{ link.platform_name }}</a>{% endif %}{% empty %}<span class="text-secondary">{% translate "No verified viewing links yet." %}</span>{% endfor %}
+    </div>
+  </div>
+</div>
+{% include "advertising/placements.html" %}
+{% endblock %}

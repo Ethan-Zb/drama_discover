@@ -1,0 +1,5 @@
+body { background: #fff; color: #20242a; }
+.hero { background: linear-gradient(120deg, #172554, #4f46e5); color: white; }
+.drama-card { border: 0; box-shadow: 0 4px 18px rgba(20,30,50,.08); overflow: hidden; }
+.poster { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e9edf3; }
+.placeholder-poster { aspect-ratio: 3/4; display:flex; align-items:center; justify-content:center; text-align:center; padding:1rem; background:linear-gradient(135deg,#dbeafe,#ede9fe); color:#334155; font-weight:700; }

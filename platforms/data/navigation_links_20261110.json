@@ -1,0 +1,460 @@
+{
+  "checked_on": "2026-11-10",
+  "method": "Official Apple Search API metadata, publisher website and Google Play listings; curated directory, not market-share ranking.",
+  "archived": {
+    "ShortTV": "Identity ambiguous and easily confused with the former name of ShortMax; retained privately pending review.",
+    "DramaReels": "Current Apple listing shares the FreeReels official destination; alias retained privately to avoid counting the same destination twice."
+  },
+  "platforms": [
+    {
+      "name": "ReelShort",
+      "website": "https://www.reelshort.com/",
+      "ios_url": "https://apps.apple.com/us/app/reelshort-stream-drama-tv/id1636235979",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/reelshort-stream-drama-tv/id1636235979",
+      "publisher": "New Leaf Publishing, Inc.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "DramaBox",
+      "website": "https://www.dramabox.com/",
+      "ios_url": "https://apps.apple.com/us/app/dramabox-stream-drama-shorts/id6445905219",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/dramabox-stream-drama-shorts/id6445905219",
+      "publisher": "STORYMATRIX PTE. LTD",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "NetShort",
+      "website": "https://www.netshort.com",
+      "ios_url": "https://apps.apple.com/us/app/netshort-popular-dramas-tv/id6504849169",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/netshort-popular-dramas-tv/id6504849169",
+      "publisher": "NETSTORY PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "GoodShort",
+      "website": "https://m.goodshort.com/",
+      "ios_url": "https://apps.apple.com/us/app/goodshort-short-dramas-hub/id6448176203",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/goodshort-short-dramas-hub/id6448176203",
+      "publisher": "SINGAPORE NEW READING TECHNOLOGY PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "DramaWave",
+      "website": "https://mydramawave.com",
+      "ios_url": "https://apps.apple.com/us/app/dramawave-dramas-reels/id6670430706",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/dramawave-dramas-reels/id6670430706",
+      "publisher": "SKYWORK AI PTE LTD",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "ShortMax",
+      "website": "",
+      "ios_url": "https://apps.apple.com/us/app/shortmax-short-dramas-tv/id6464002625",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/shortmax-short-dramas-tv/id6464002625",
+      "publisher": "SHORTTV LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FlickReels",
+      "website": "https://flickreels.net",
+      "ios_url": "https://apps.apple.com/us/app/flickreels-ai-story-drama/id6514312894",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/flickreels-ai-story-drama/id6514312894",
+      "publisher": "FARSUN PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Kuku TV",
+      "website": "https://kukutv.app/",
+      "ios_url": "https://apps.apple.com/in/app/kuku-tv-stream-drama-series/id6737497276",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/in/app/kuku-tv-stream-drama-series/id6737497276",
+      "publisher": "Kuku Technologies Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "StardustTV",
+      "website": "https://www.stardusttv.cc/",
+      "ios_url": "https://apps.apple.com/us/app/stardusttv-short-drama-movie/id6502377927",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/stardusttv-short-drama-movie/id6502377927",
+      "publisher": "Hongxing Media Co., Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Story TV",
+      "website": "https://storytv.asia/",
+      "ios_url": "https://apps.apple.com/in/app/story-tv-watch-drama-shows/id6746484263",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/in/app/story-tv-watch-drama-shows/id6746484263",
+      "publisher": "GREENHORN WELLNESS PRIVATE LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "QuickTV",
+      "website": "",
+      "ios_url": "https://apps.apple.com/in/app/quicktv-short-drama-movies/id6747964677",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/in/app/quicktv-short-drama-movies/id6747964677",
+      "publisher": "MOHALLA TECH PRIVATE LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "My Drama",
+      "website": "https://my-drama.com/",
+      "ios_url": "https://apps.apple.com/us/app/my-drama-stream-short-dramas/id6498713494",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/my-drama-stream-short-dramas/id6498713494",
+      "publisher": "Holy Water Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FlareFlow",
+      "website": "https://www.flareflow.tv",
+      "ios_url": "https://apps.apple.com/us/app/flareflow-short-dramas/id6744237126",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/flareflow-short-dramas/id6744237126",
+      "publisher": "FlareFlow Pte. Ltd.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "PineDrama",
+      "website": "https://shortdrama.tiktok.com/",
+      "ios_url": "https://apps.apple.com/us/app/pinedrama-short-dramas/id6754134922",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/pinedrama-short-dramas/id6754134922",
+      "publisher": "TIKTOK PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "MoboReels",
+      "website": "https://www.moboreels.com",
+      "ios_url": "https://apps.apple.com/us/app/moboreels-short-drama-series/id6450243852",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/moboreels-short-drama-series/id6450243852",
+      "publisher": "CHANGDU (HK) TECHNOLOGY LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "JoyReels",
+      "website": "https://www.joyreels.com/",
+      "ios_url": "https://apps.apple.com/us/app/joyreels-enjoy-short-dramas/id6465895541",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/joyreels-enjoy-short-dramas/id6465895541",
+      "publisher": "UREELS PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FlexTV",
+      "website": "",
+      "ios_url": "https://apps.apple.com/us/app/flextv-short-drama-reels-tv/id1645515419",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/flextv-short-drama-reels-tv/id1645515419",
+      "publisher": "YUDER PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "KalosTV",
+      "website": "https://www.kalostv.com",
+      "ios_url": "https://apps.apple.com/us/app/kalos-tv-short-dramas-reels/id6463394851",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/kalos-tv-short-dramas-reels/id6463394851",
+      "publisher": "Storyverse Co., Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Sereal+",
+      "website": "https://www.serealplus.com",
+      "ios_url": "https://apps.apple.com/us/app/sereal-short-drama-tv-series/id6473688138",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/sereal-short-drama-tv-series/id6473688138",
+      "publisher": "Col Web Pte Ltd",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Vigloo",
+      "website": "https://www.vigloo.com",
+      "ios_url": "https://apps.apple.com/us/app/vigloo-premier-short-dramas/id6503421271",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/vigloo-premier-short-dramas/id6503421271",
+      "publisher": "Spoonlabs, Inc.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Shortical",
+      "website": "https://shortical.com",
+      "ios_url": "https://apps.apple.com/us/app/shortical-stream-dramas-tv/id6745260515",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/shortical-stream-dramas-tv/id6745260515",
+      "publisher": "Short Entertainment LTD",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "CandyJarTV",
+      "website": "https://candyjar.com/",
+      "ios_url": "https://apps.apple.com/us/app/inkitt-candyjar-tv-shorts/id6466786430",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/inkitt-candyjar-tv-shorts/id6466786430",
+      "publisher": "Inkitt GmbH",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "VibeShort",
+      "website": "https://www.vibeshort.live",
+      "ios_url": "https://apps.apple.com/us/app/vibeshort-ai-short-dramas/id6758667154",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/vibeshort-ai-short-dramas/id6758667154",
+      "publisher": "AGILE QUADRANT MEDIA LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Coin Drama",
+      "website": "",
+      "ios_url": "https://apps.apple.com/us/app/coindrama/id6801006288",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/coindrama/id6801006288",
+      "publisher": "YS Culture Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "DotDrama",
+      "website": "",
+      "ios_url": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.vividshort.drama.vivid",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.vividshort.drama.vivid",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Playlet",
+      "website": "https://playlet.com",
+      "ios_url": "https://apps.apple.com/us/app/playlet-watch-short-dramas-tv/id6469587141",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/playlet-watch-short-dramas-tv/id6469587141",
+      "publisher": "MicroShowtime Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Dramabite",
+      "website": "https://www.dramabite.media/",
+      "ios_url": "https://apps.apple.com/us/app/dramabite-short-dramas-tv/id6468977935",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/dramabite-short-dramas-tv/id6468977935",
+      "publisher": "StorySculpt Entertainment Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "iDrama",
+      "website": "https://www.idrama.video",
+      "ios_url": "https://apps.apple.com/us/app/idrama-short-dramas-reels/id6741501595",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/idrama-short-dramas-reels/id6741501595",
+      "publisher": "HK Good Drama Technology Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "YuzuDrama",
+      "website": "https://www.yuzudrama.com",
+      "ios_url": "https://apps.apple.com/vn/app/yuzudrama/id6740232871",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/vn/app/yuzudrama/id6740232871",
+      "publisher": "CREST DIGITAL MEDIA PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FunDrama",
+      "website": "https://fundrama.pointsculture.com/",
+      "ios_url": "https://apps.apple.com/vn/app/fundrama-funflip/id6740012674",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/vn/app/fundrama-funflip/id6740012674",
+      "publisher": "POINTS CULTURE INTERNATIONAL PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Soda Reels",
+      "website": "",
+      "ios_url": "https://apps.apple.com/id/app/soda-reels/id6758488784",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/id/app/soda-reels/id6758488784",
+      "publisher": "STATION DEPART POINT",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "ShotShort",
+      "website": "",
+      "ios_url": "https://apps.apple.com/ph/app/shotshort-shorts-dramas/id6472757546",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/ph/app/shotshort-shorts-dramas/id6472757546",
+      "publisher": "Nanjing Radiance Network Technology Co., Ltd.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "HoneyReels",
+      "website": "",
+      "ios_url": "https://apps.apple.com/vn/app/honeyreels/id6477434409",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/vn/app/honeyreels/id6477434409",
+      "publisher": "HK YAWEN INFORMATION TECHNOLOGY LIMITED",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "MiniShorts",
+      "website": "https://www.snap-shorts.com/",
+      "ios_url": "https://apps.apple.com/us/app/minishorts/id6475380865",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/minishorts/id6475380865",
+      "publisher": "NOVENTURE PTE. LTD.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "BUMP",
+      "website": "",
+      "ios_url": "https://apps.apple.com/jp/app/bump-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%83%89%E3%83%A9%E3%83%9E-short-drama/id1630710367",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/jp/app/bump-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%83%89%E3%83%A9%E3%83%9E-short-drama/id1630710367",
+      "publisher": "emole K,K",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "PocketFilms",
+      "website": "",
+      "ios_url": "https://apps.apple.com/in/app/pocket-films/id6742134904",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/in/app/pocket-films/id6742134904",
+      "publisher": "Onetakemedia.com Private Limited",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Sweetz",
+      "website": "https://court-drama.app/",
+      "ios_url": "https://apps.apple.com/fr/app/sweetz-short-drama-fran%C3%A7ais/id6756616940",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/fr/app/sweetz-short-drama-fran%C3%A7ais/id6756616940",
+      "publisher": "Court (Apps)",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Tattle TV",
+      "website": "",
+      "ios_url": "https://apps.apple.com/gb/app/tattle-tv/id6754205890",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/gb/app/tattle-tv/id6754205890",
+      "publisher": "EMC Productions media LTD",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Drama Pops",
+      "website": "",
+      "ios_url": "https://apps.apple.com/us/app/drama-pops-reel-shorts-tv/id6503891345",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/drama-pops-reel-shorts-tv/id6503891345",
+      "publisher": "DEEP FLOW SOFTWARE SERVICES - FZCO",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "SnackShort",
+      "website": "",
+      "ios_url": "https://apps.apple.com/us/app/snackshort/id6450035850",
+      "android_url": "",
+      "verification_url": "https://apps.apple.com/us/app/snackshort/id6450035850",
+      "publisher": "Nanjing Menglu Culture Media Co., Ltd.",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "RapidTV",
+      "website": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.rapid.short.tv",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.rapid.short.tv",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FreeReels",
+      "website": "https://free-reels.com/",
+      "android_url": "https://play.google.com/store/apps/details?id=com.freereels.app",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.freereels.app",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "Melolo",
+      "website": "https://www.melolo.org/",
+      "android_url": "https://play.google.com/store/apps/details?id=com.worldance.drama",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.worldance.drama",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "HotMiniDrama",
+      "website": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.hotmini.drama.hot",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.hotmini.drama.hot",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "LuckyDrama",
+      "website": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.bubume.drama",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.bubume.drama",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "AnyReel",
+      "website": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.anyreel.android.app",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.anyreel.android.app",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "BonusTV",
+      "website": "https://www.bonusdrama.com/",
+      "android_url": "https://play.google.com/store/apps/details?id=com.wtv.winkitv",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.wtv.winkitv",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "StoryReel",
+      "website": "https://www.storyreel.life/",
+      "android_url": "https://play.google.com/store/apps/details?id=com.storyreel.tv.android",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.storyreel.tv.android",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "FunReels",
+      "website": "",
+      "android_url": "https://play.google.com/store/apps/details?id=com.funreels.immersiveshows",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.funreels.immersiveshows",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    },
+    {
+      "name": "DreameShort",
+      "website": "https://www.dreameshort.com/",
+      "android_url": "https://play.google.com/store/apps/details?id=com.stary.dreamshort",
+      "ios_url": "",
+      "verification_url": "https://play.google.com/store/apps/details?id=com.stary.dreamshort",
+      "publisher": "See linked official listing",
+      "checked_on": "2026-11-10"
+    }
+  ]
+}

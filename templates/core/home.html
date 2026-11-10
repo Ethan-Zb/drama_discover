@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Discover Short Dramas | {{ site_setting.site_name|default:"Drama Discover" }}{% endblock %}
+{% block content %}
+<section class="hero rounded-4 p-4 p-md-5 mb-5">
+  <div class="col-lg-8"><span class="badge text-bg-warning mb-3">Drama discovery</span>
+  <h1 class="display-5 fw-bold">Find your next short drama.</h1>
+  <p class="lead">Explore drama titles, genres and official viewing destinations.</p>
+  <a class="btn btn-light btn-lg" href="{% url 'drama:list' %}">Explore dramas</a></div>
+</section>
+{% if categories %}<h2 class="h4 mb-3">Browse categories</h2><div class="d-flex flex-wrap gap-2 mb-5">
+{% for category in categories %}<a class="btn btn-outline-secondary" href="{% url 'drama:category' category.slug %}">{{ category.name }}</a>{% endfor %}
+</div>{% endif %}
+<section class="mb-5" aria-labelledby="platforms-heading">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 id="platforms-heading" class="h4 mb-0">Short drama platforms</h2>
+    <span class="text-secondary">{{ platforms|length }} platforms</span>
+  </div>
+  <div class="row g-3">
+    {% for platform in platforms %}
+    <div class="col-12 col-md-6 col-lg-4" data-platform-id="{{ platform.pk }}">
+      <article class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+            <h3 class="h5 mb-0">{{ platform.name }}</h3>
+            <span class="badge {% if platform.status == 'verified' %}text-bg-success{% else %}text-bg-secondary{% endif %}">{{ platform.get_status_display }}</span>
+          </div>
+          <p class="small text-secondary mb-2">{{ platform.country }}{% if platform.country %} · {% endif %}{{ platform.get_platform_type_display }}</p>
+          {% if platform.market %}<p class="small mb-2">{{ platform.market }}</p>{% endif %}
+          {% if platform.description %}<p class="small text-secondary mb-0">{{ platform.description }}</p>{% endif %}
+          {% if platform.status == 'verified' and platform.website %}<a class="btn btn-outline-primary btn-sm mt-3" href="{{ platform.website }}" target="_blank" rel="nofollow noopener noreferrer">Visit website</a>{% endif %}
+        </div>
+      </article>
+    </div>
+    {% empty %}
+    <div class="col-12"><p class="text-secondary">No platforms listed yet.</p></div>
+    {% endfor %}
+  </div>
+</section>
+<div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Featured dramas</h2><a href="{% url 'drama:list' %}">View all</a></div>
+<div class="row g-4">{% for drama in dramas %}{% include "drama/_card.html" %}{% empty %}
+<div class="col-12"><div class="alert alert-info">No published dramas yet. Add categories and dramas in <a href="/admin/">Django Admin</a>.</div></div>{% endfor %}</div>
+{% include "advertising/placements.html" %}
+{% endblock %}

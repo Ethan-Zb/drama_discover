@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% load i18n navigation_i18n %}
+{% block title %}{% translate "Search dramas" %}{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">{% translate "Search results" %}{% if q %} “{{ q }}”{% endif %}</h1>
+<div class="row g-4">{% for drama in dramas %}{% include "drama/_card.html" %}{% empty %}<p>{% translate "No matching dramas found." %}</p>{% endfor %}</div>
+{% endblock %}

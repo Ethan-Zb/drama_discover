@@ -1,0 +1,387 @@
+# Public website translations; editable gettext catalogue.
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: zh_Hans\nPlural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A SIMPLER WAY TO DISCOVER"
+msgstr "更简单的平台发现方式"
+
+msgid "A WORLD OF STORIES"
+msgstr "故事，连接世界"
+
+msgid "Add contact email in admin"
+msgstr "请在后台设置联系邮箱"
+
+msgid "Advertisement"
+msgstr "广告"
+
+msgid "All Short Dramas"
+msgstr "全部短剧"
+
+msgid "All countries / regions"
+msgstr "全部来源国家/地区"
+
+msgid "All platforms"
+msgstr "全部平台"
+
+msgid "All regions"
+msgstr "全部服务区域"
+
+msgid "An independent directory. All trademarks belong to their owners."
+msgstr "本站为独立导航目录，相关商标归各自权利人所有。"
+
+msgid "App Store"
+msgstr "App Store"
+
+msgid "Apply filters"
+msgstr "应用筛选"
+
+msgid "Availability, subscriptions and viewing terms are set by each platform."
+msgstr "内容可用性、订阅及观看规则由各平台自行决定。"
+
+msgid "Browse here."
+msgstr "在这里发现。"
+
+msgid "Browse the collection or search for a name."
+msgstr "浏览精选目录，或输入平台名称搜索。"
+
+msgid "Checked destinations"
+msgstr "已核实入口"
+
+msgid "China"
+msgstr "中国"
+
+msgid "Choose an official or authorized source. This directory does not host the video."
+msgstr "请选择官方或授权来源，本站不托管视频。"
+
+msgid "Choose your destination"
+msgstr "选择访问入口"
+
+msgid "Clear filters →"
+msgstr "清除筛选 →"
+
+msgid "Content availability and prices depend on the platform and your region."
+msgstr "可观看内容及价格取决于平台规则和你所在的地区。"
+
+msgid "Country / region"
+msgstr "来源国家/地区"
+
+msgid "Country is directory metadata, separate from service markets. Unconfirmed entries stay under review."
+msgstr "来源国家按目录资料分类，与服务市场分别展示；无法确认的条目保留待核实标记。"
+
+msgid "Country pending review"
+msgstr "来源国家待核实"
+
+msgid "Curated entries, not a market-share ranking."
+msgstr "编辑精选目录，并非市场份额排名。"
+
+msgid "DISCOVER / 01"
+msgstr "发现 / 01"
+
+msgid "Discover"
+msgstr "发现短剧"
+
+msgid "Discover overseas short-drama platforms and follow checked website and official app-store links. An independent, free navigation directory."
+msgstr "发现国内外短剧平台，通过已核实的官网和官方应用商店入口访问。独立、免费的平台导航。"
+
+msgid "Discover short dramas"
+msgstr "发现精彩短剧"
+
+msgid "Discover short dramas and find official viewing sources."
+msgstr "发现精彩短剧，找到官方观看入口。"
+
+msgid "Domestic"
+msgstr "国内"
+
+msgid "Domestic selection references September 2026 MAU for standalone short-drama apps, including animated dramas."
+msgstr "国内三款参考 2026 年 9 月独立短剧 App 月活规模（包含漫剧），并非实时榜单。"
+
+msgid "Drama"
+msgstr "短剧"
+
+msgid "Drama Discover is an independent discovery directory and is not affiliated with listed platforms."
+msgstr "Drama Discover 是独立导航目录，与收录平台不存在隶属关系。"
+
+msgid "Dramas"
+msgstr "短剧"
+
+msgid "EDITORIAL COLLECTION"
+msgstr "编辑精选短剧"
+
+msgid "EPISODE."
+msgstr "精彩。"
+
+msgid "Editor's pick"
+msgstr "编辑推荐"
+
+msgid "Endless possibilities."
+msgstr "精彩无限。"
+
+msgid "Entry checked"
+msgstr "入口已核实"
+
+msgid "Entry pending review"
+msgstr "入口待核实"
+
+msgid "Europe"
+msgstr "欧洲"
+
+msgid "Explore %(name)s through its website or official app listing. Viewing is provided by the platform."
+msgstr "通过官网或官方商店了解 %(name)s，观看服务由该平台提供。"
+
+msgid "Explore on their terms"
+msgstr "按平台规则观看"
+
+msgid "Explore platforms"
+msgstr "浏览平台"
+
+msgid "Explore the directory, choose a destination, and watch on their own site or app."
+msgstr "浏览平台目录，选择入口，在平台官网或 App 中观看。"
+
+msgid "Featured dramas"
+msgstr "精选短剧"
+
+msgid "Find a platform"
+msgstr "查找平台"
+
+msgid "Find the platform. Follow the story."
+msgstr "找到平台，开启故事。"
+
+msgid "Find your next short-drama platform."
+msgstr "找到适合你的下一个短剧平台。"
+
+msgid "France"
+msgstr "法国"
+
+msgid "Free"
+msgstr "免费"
+
+msgid "Germany"
+msgstr "德国"
+
+msgid "Global"
+msgstr "全球"
+
+msgid "Google Play"
+msgstr "Google Play"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "Hong Kong, China"
+msgstr "中国香港"
+
+msgid "How it works"
+msgstr "使用指南"
+
+msgid "How it works →"
+msgstr "使用指南 →"
+
+msgid "India"
+msgstr "印度"
+
+msgid "Indonesia"
+msgstr "印度尼西亚"
+
+msgid "International"
+msgstr "国际市场"
+
+msgid "Japan"
+msgstr "日本"
+
+msgid "Link being verified"
+msgstr "链接核实中"
+
+msgid "Links open the platform's own website or official app store."
+msgstr "点击后前往平台自身官网或官方应用商店。"
+
+msgid "MORE"
+msgstr "一集"
+
+msgid "Manage directory ↗"
+msgstr "管理平台 ↗"
+
+msgid "No dramas published yet."
+msgstr "暂未发布短剧。"
+
+msgid "No matching dramas found."
+msgstr "没有找到匹配的短剧。"
+
+msgid "No matching platforms."
+msgstr "没有找到匹配的平台。"
+
+msgid "No verified viewing links yet."
+msgstr "暂无已核实的观看链接。"
+
+msgid "North America"
+msgstr "北美"
+
+msgid "ONE"
+msgstr "再看"
+
+msgid "Official destinations. One directory."
+msgstr "官方入口，统一导航。"
+
+msgid "Only follow verified official or authorized viewing links. Contact:"
+msgstr "仅提供核实后的官方或授权观看链接。联系邮箱："
+
+msgid "Overseas"
+msgstr "海外"
+
+msgid "Overseas short-drama platform"
+msgstr "海外短剧平台"
+
+msgid "PICK YOUR NEXT DESTINATION"
+msgstr "选择你的下一站"
+
+msgid "Philippines"
+msgstr "菲律宾"
+
+msgid "Platforms"
+msgstr "平台目录"
+
+msgid "Platforms listed"
+msgstr "已收录平台"
+
+msgid "Ranking source ↗"
+msgstr "榜单来源 ↗"
+
+msgid "Read & discover →"
+msgstr "了解详情 →"
+
+msgid "Ready to visit"
+msgstr "可直接访问"
+
+msgid "Results: %(total)s"
+msgstr "共 %(total)s 个结果"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Search dramas"
+msgstr "搜索短剧"
+
+msgid "Search platforms"
+msgstr "搜索平台"
+
+msgid "Search platforms by name or market…"
+msgstr "搜索平台名称、市场或国家…"
+
+msgid "Search results"
+msgstr "搜索结果"
+
+msgid "Search →"
+msgstr "搜索 →"
+
+msgid "Service region"
+msgstr "服务区域"
+
+msgid "Short drama platform directory"
+msgstr "短剧平台导航"
+
+msgid "Short stories. Big feelings."
+msgstr "短小故事，饱满情感。"
+
+msgid "Singapore"
+msgstr "新加坡"
+
+msgid "Small episodes."
+msgstr "短剧虽短。"
+
+msgid "South Korea"
+msgstr "韩国"
+
+msgid "Southeast Asia"
+msgstr "东南亚"
+
+msgid "THE SHORT-DRAMA DISCOVERY DIRECTORY"
+msgstr "短剧平台导航"
+
+msgid "Tags:"
+msgstr "标签："
+
+msgid "Thailand"
+msgstr "泰国"
+
+msgid "The platform collection"
+msgstr "平台精选目录"
+
+msgid "To browse & navigate"
+msgstr "浏览与跳转均免费"
+
+msgid "Try another name or remove a filter."
+msgstr "请更换关键词或调整筛选条件。"
+
+msgid "Türkiye"
+msgstr "土耳其"
+
+msgid "Ukraine"
+msgstr "乌克兰"
+
+msgid "United Kingdom"
+msgstr "英国"
+
+msgid "United States"
+msgstr "美国"
+
+msgid "Vietnam"
+msgstr "越南"
+
+msgid "Viewing options"
+msgstr "观看入口"
+
+msgid "Visit a website or open its official app-store listing."
+msgstr "进入平台官网，或打开官方应用商店页面。"
+
+msgid "Visit website"
+msgstr "访问官网"
+
+msgid "Watch on official platform"
+msgstr "前往官方平台观看"
+
+msgid "Watch there."
+msgstr "去平台观看。"
+
+msgid "We are checking this platform's current destination. No unverified links are provided."
+msgstr "正在核实该平台的最新入口，暂不提供未经核实的链接。"
+
+msgid "We help you find a platform. The platform handles viewing, accounts and any subscriptions."
+msgstr "我们帮你找到平台，观看、账号及订阅服务由对应平台提供。"
+
+msgid "Website and app-store links are labelled separately."
+msgstr "官网与应用商店入口分别标明。"
+
+msgid "Websites"
+msgstr "官网入口"
+
+msgid "Your next"
+msgstr "你的下一部"
+
+msgid "Your next story starts here."
+msgstr "下一段精彩，从这里开始。"
+
+msgid "emerging markets"
+msgstr "新兴市场"
+
+msgid "episodes"
+msgstr "集"
+
+msgid "for"
+msgstr "关键词："
+
+msgid "global"
+msgstr "全球"
+
+msgid "obsession."
+msgstr "心动短剧。"
+
+msgid "· not a licensing endorsement"
+msgstr "· 不代表内容授权背书"
+
+msgid "Choose language"
+msgstr "选择语言"
+
+msgid "Operations center"
+msgstr "运营中心"
+
+msgid "Discover domestic and overseas short-drama platforms through checked website and official app-store links. An independent, free navigation directory."
+msgstr "发现国内外短剧平台，通过已核实的官网和官方应用商店入口访问。独立、免费的平台导航。"
